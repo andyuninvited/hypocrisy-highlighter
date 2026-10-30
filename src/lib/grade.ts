@@ -5,6 +5,8 @@ export type Letter = "A" | "B" | "C" | "D" | "F";
 export const letterFor = (score: number): Letter =>
   score >= 90 ? "A" : score >= 80 ? "B" : score >= 70 ? "C" : score >= 60 ? "D" : "F";
 
+export const withArticle = (l: Letter): string => `${l === "A" || l === "F" ? "an" : "a"} ${l}`;
+
 export const OVERALL: Record<Letter, string> = {
   A: "Top of the class. Practices what it sells.",
   B: "Solid work. A little homework left.",
@@ -51,3 +53,11 @@ export const ranked = (scans: Scan[]): Scan[] => scans.toSorted((a, b) => b.over
 
 export const average = (scans: Scan[]): number =>
   scans.length ? Math.round(scans.reduce((n, s) => n + s.overall, 0) / scans.length) : 0;
+
+export type Improvement = { id: string; title: string; from: number; to: number };
+
+export const improvements = (s: Scan): Improvement[] =>
+  (s.before?.checks ?? []).flatMap((b) => {
+    const now = s.checks.find((c) => c.id === b.id);
+    return now && b.score !== null && now.score !== null && now.score > b.score ? [{ id: b.id, title: now.title, from: b.score, to: now.score }] : [];
+  });

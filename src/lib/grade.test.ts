@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { average, comment, letterFor, ranked, teacherNote, worst } from "./grade";
+import { average, comment, improvements, letterFor, ranked, teacherNote, worst } from "./grade";
 import type { Check, Scan } from "./types";
 
 const check = (id: string, status: Check["status"], score: number | null, weight = 10, reason = ""): Check => ({ id, title: id, weight, status, score, reason, fix: null });
@@ -50,5 +50,15 @@ describe("ranked and average", () => {
   it("rounds the average and handles empty", () => {
     expect(average([scan("a", 50), scan("b", 51)])).toBe(51);
     expect(average([])).toBe(0);
+  });
+});
+
+describe("improvements", () => {
+  it("lists checks that went up and ignores the rest", () => {
+    const s = { ...scan("me", 100, [check("llms-txt", "pass", 100), check("sitemap", "pass", 100), check("mcp", "pass", 100)]), before: { scannedAt: "", overall: 53, checks: [check("llms-txt", "fail", 0), check("sitemap", "pass", 100), check("mcp", "skip", null)] } };
+    expect(improvements(s)).toEqual([{ id: "llms-txt", title: "llms-txt", from: 0, to: 100 }]);
+  });
+  it("is empty without a before", () => {
+    expect(improvements(scan("a", 50))).toEqual([]);
   });
 });
