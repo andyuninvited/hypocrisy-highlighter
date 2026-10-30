@@ -37,7 +37,11 @@ const main = async () => {
   }
   const prev = JSON.parse(await readFile("src/data/scans.json", "utf8").catch(() => "[]")) as Scan[];
   const fresh = results.filter((r): r is Scan => !("error" in r));
-  const merged = [...prev.filter((p) => !fresh.some((f) => f.slug === p.slug)), ...fresh].toSorted((a, b) => a.slug.localeCompare(b.slug));
+  const keepBefore = (f: Scan): Scan => {
+    const before = prev.find((p) => p.slug === f.slug)?.before;
+    return before ? { ...f, before } : f;
+  };
+  const merged = [...prev.filter((p) => !fresh.some((f) => f.slug === p.slug)), ...fresh.map(keepBefore)].toSorted((a, b) => a.slug.localeCompare(b.slug));
   await writeFile("src/data/scans.json", JSON.stringify(merged, null, 2) + "\n");
   console.log(`${fresh.length} scanned, ${results.length - fresh.length} failed, ${merged.length} total`);
 };

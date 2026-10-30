@@ -32,7 +32,7 @@ const bodyFor = (slug: string): Body | undefined => {
   }
   const s = bySlug(slug);
   if (!s) return undefined;
-  return { kicker: `REPORT CARD · ${s.category.toUpperCase()}`, letter: letterFor(s.overall), title: s.name, line: `${s.overall}/100 for agent readiness`, note: teacherNote(s) };
+  return { kicker: `REPORT CARD · ${s.category.toUpperCase()}`, letter: letterFor(s.overall), title: s.name, line: s.before ? `${s.before.overall} → ${s.overall}/100 for agent readiness` : `${s.overall}/100 for agent readiness`, note: teacherNote(s) };
 };
 
 export async function GET(request: Request, { params }: { params: Promise<{ slug: string }> }) {

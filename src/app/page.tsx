@@ -2,7 +2,7 @@ import Link from "next/link";
 import { CopyCommand } from "@/components/copy-command";
 import { GradeBadge } from "@/components/grade-badge";
 import { classList, self } from "@/lib/data";
-import { average, letterFor, teacherNote } from "@/lib/grade";
+import { average, letterFor, teacherNote, withArticle } from "@/lib/grade";
 import { AGENT_LANDING_URL, SCAN_COMMAND } from "@/lib/site";
 
 const SAFETY: [string, string][] = [
@@ -42,11 +42,23 @@ export default function Home() {
 
       {self && (
         <section className="flex flex-col gap-3 rounded-2xl border-2 border-dashed border-ink p-6 sm:flex-row sm:items-center sm:gap-6">
-          <GradeBadge score={self.overall} />
+          <span className="flex shrink-0 items-center gap-2">
+            {self.before && (
+              <>
+                <GradeBadge score={self.before.overall} />
+                <span aria-hidden className="font-display text-xl">→</span>
+              </>
+            )}
+            <GradeBadge score={self.overall} />
+          </span>
           <p className="text-lg">
-            <strong>I graded my own site first.</strong> andyrosic.com scored {self.overall}. {teacherNote(self)} Everyone in this class gets the same red pen, including me.{" "}
+            <strong>I graded my own site first.</strong>{" "}
+            {self.before
+              ? `andyrosic.com scored ${self.before.overall}, ${withArticle(letterFor(self.before.overall))}. So I added an llms.txt, markdown pages, a read-only API, and an MCP server, and the rescan scored ${self.overall}, ${withArticle(letterFor(self.overall))}.`
+              : `andyrosic.com scored ${self.overall}. ${teacherNote(self)}`}{" "}
+            Everyone in this class gets the same red pen, including me.{" "}
             <Link href={`/c/${self.slug}`} className="font-bold underline">
-              See my report card
+              See my before and after
             </Link>
             .
           </p>

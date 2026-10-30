@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import { GradeBadge } from "@/components/grade-badge";
 import { Share } from "@/components/share";
 import { allSlugs, bySlug } from "@/lib/data";
-import { comment, letterFor, OVERALL, teacherNote } from "@/lib/grade";
+import { comment, improvements, letterFor, OVERALL, teacherNote } from "@/lib/grade";
 import { SITE_URL } from "@/lib/site";
 
 type Props = { params: Promise<{ slug: string }> };
@@ -24,6 +24,8 @@ export default async function ReportCard({ params }: Props) {
   const s = bySlug((await params).slug);
   if (!s) notFound();
   const letter = letterFor(s.overall);
+  const fixed = improvements(s);
+  const day = (iso: string) => new Date(iso).toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" });
   const scanned = new Date(s.scannedAt).toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" });
 
   return (
@@ -41,6 +43,44 @@ export default async function ReportCard({ params }: Props) {
           </p>
         </div>
       </header>
+
+      {s.before && (
+        <section className="flex flex-col gap-4 rounded-2xl border-2 border-chalk bg-white p-6">
+          <h2 className="font-display text-2xl">Before and after</h2>
+          <div className="flex flex-wrap items-center gap-6">
+            <span className="flex items-center gap-3">
+              <GradeBadge score={s.before.overall} />
+              <span className="flex flex-col text-sm">
+                <span className="font-mono text-base">{s.before.overall}/100</span>
+                <span className="text-ink/60">{day(s.before.scannedAt)}</span>
+              </span>
+            </span>
+            <span aria-hidden className="font-display text-2xl">→</span>
+            <span className="flex items-center gap-3">
+              <GradeBadge score={s.overall} />
+              <span className="flex flex-col text-sm">
+                <span className="font-mono text-base">{s.overall}/100</span>
+                <span className="text-ink/60">{day(s.scannedAt)}</span>
+              </span>
+            </span>
+          </div>
+          {fixed.length > 0 && (
+            <ul className="flex flex-col gap-1">
+              {fixed.map((f) => (
+                <li key={f.id}>
+                  <strong>{f.title}:</strong> <span className="font-mono">{f.from} → {f.to}</span>
+                </li>
+              ))}
+            </ul>
+          )}
+          {s.slug === "andy-rosic" && (
+            <p className="text-sm">
+              See for yourself: <a className="underline" href="https://andyrosic.com/llms.txt">llms.txt</a>, <a className="underline" href="https://andyrosic.com/index.md">the markdown homepage</a>,{" "}
+              <a className="underline" href="https://andyrosic.com/openapi.json">the API spec</a>, and <a className="underline" href="https://andyrosic.com/.well-known/mcp.json">the MCP server</a>.
+            </p>
+          )}
+        </section>
+      )}
 
       <section className="flex flex-col gap-3">
         <h2 className="font-display text-2xl">Subjects</h2>

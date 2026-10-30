@@ -304,26 +304,26 @@
     "name": "Andy Rosic",
     "url": "https://andyrosic.com/",
     "category": "The guy who made this",
-    "scannedAt": "2026-10-30T21:00:03.522Z",
-    "overall": 53,
+    "scannedAt": "2026-10-30T21:26:59.567Z",
+    "overall": 100,
     "checks": [
       {
         "id": "robots-ai",
         "title": "robots.txt rules for AI agents",
         "weight": 15,
         "status": "pass",
-        "score": 90,
-        "reason": "All 11 AI agents checked may fetch every key page. No AI agent is named, so they all fall back to the * group.",
-        "fix": "Add explicit User-agent groups for the AI agents you want, so your policy is a decision rather than a default."
+        "score": 100,
+        "reason": "All 11 AI agents checked may fetch every key page. robots.txt names 9 AI agent(s) explicitly.",
+        "fix": null
       },
       {
         "id": "llms-txt",
         "title": "llms.txt and llms-full.txt",
         "weight": 15,
-        "status": "fail",
-        "score": 0,
-        "reason": "No /llms.txt (HTTP 404).",
-        "fix": "Publish /llms.txt: a markdown file with an H1 product name, a one-paragraph > summary, and sections of links to your most useful docs. Add /llms-full.txt with the full docs inlined if they fit in a model context."
+        "status": "pass",
+        "score": 100,
+        "reason": "/llms.txt found (2484 chars, 18 link(s)). /llms-full.txt found.",
+        "fix": null
       },
       {
         "id": "sitemap",
@@ -347,10 +347,10 @@
         "id": "markdown",
         "title": "Markdown versions of key pages",
         "weight": 10,
-        "status": "fail",
-        "score": 0,
-        "reason": "1 of 1 key page(s) have no markdown version: /.",
-        "fix": "Serve markdown for key pages, either at the same path plus .md or when the request sends Accept: text/markdown, and advertise it with <link rel=\"alternate\" type=\"text/markdown\" href=\"...\">. Markdown cuts token cost and removes layout noise for agents."
+        "status": "pass",
+        "score": 100,
+        "reason": "Every key page has a markdown version.",
+        "fix": null
       },
       {
         "id": "structured-data",
@@ -365,19 +365,19 @@
         "id": "api-docs",
         "title": "OpenAPI and API docs discoverability",
         "weight": 10,
-        "status": "fail",
-        "score": 0,
-        "reason": "No API spec at /openapi.json, /openapi.yaml, /swagger.json, /api/openapi.json, /.well-known/api-catalog and no API docs link on key pages or in llms.txt.",
-        "fix": "Publish an OpenAPI spec at /openapi.json and link API docs from your homepage and llms.txt. If the product has no API, disable this check in config (\"api-docs\": { \"enabled\": false })."
+        "status": "pass",
+        "score": 100,
+        "reason": "Machine-readable API spec at /openapi.json. /.well-known/api-catalog found.",
+        "fix": null
       },
       {
         "id": "mcp",
         "title": "MCP server discoverability",
         "weight": 10,
-        "status": "fail",
-        "score": 0,
-        "reason": "No MCP server found: no /.well-known MCP document and no mention on key pages or in llms.txt.",
-        "fix": "If you offer an MCP server, document its URL, transport, and auth in llms.txt and your docs. If you do not, an MCP server is the most direct way for agents like Claude Code to use your product. Disable this check in config (\"mcp\": { \"enabled\": false }) if it does not apply."
+        "status": "pass",
+        "score": 100,
+        "reason": "MCP discovery document at /.well-known/mcp.json.",
+        "fix": null
       },
       {
         "id": "auth-friction",
@@ -393,11 +393,107 @@
         "title": "Page weight and token cost",
         "weight": 5,
         "status": "pass",
-        "score": 85,
+        "score": 100,
         "reason": "Key pages are light enough to read in one pass.",
         "fix": null
       }
-    ]
+    ],
+    "before": {
+      "scannedAt": "2026-10-30T21:00:03.522Z",
+      "overall": 53,
+      "checks": [
+        {
+          "id": "robots-ai",
+          "title": "robots.txt rules for AI agents",
+          "weight": 15,
+          "status": "pass",
+          "score": 90,
+          "reason": "All 11 AI agents checked may fetch every key page. No AI agent is named, so they all fall back to the * group.",
+          "fix": "Add explicit User-agent groups for the AI agents you want, so your policy is a decision rather than a default."
+        },
+        {
+          "id": "llms-txt",
+          "title": "llms.txt and llms-full.txt",
+          "weight": 15,
+          "status": "fail",
+          "score": 0,
+          "reason": "No /llms.txt (HTTP 404).",
+          "fix": "Publish /llms.txt: a markdown file with an H1 product name, a one-paragraph > summary, and sections of links to your most useful docs. Add /llms-full.txt with the full docs inlined if they fit in a model context."
+        },
+        {
+          "id": "sitemap",
+          "title": "Sitemap",
+          "weight": 5,
+          "status": "pass",
+          "score": 100,
+          "reason": "Sitemap at https://andyrosic.com/sitemap.xml (from robots.txt) with 9 entries.",
+          "fix": null
+        },
+        {
+          "id": "ssr-readable",
+          "title": "Server-rendered readable HTML",
+          "weight": 15,
+          "status": "pass",
+          "score": 100,
+          "reason": "All 1 key page(s) return readable HTML without running JavaScript.",
+          "fix": null
+        },
+        {
+          "id": "markdown",
+          "title": "Markdown versions of key pages",
+          "weight": 10,
+          "status": "fail",
+          "score": 0,
+          "reason": "1 of 1 key page(s) have no markdown version: /.",
+          "fix": "Serve markdown for key pages, either at the same path plus .md or when the request sends Accept: text/markdown, and advertise it with <link rel=\"alternate\" type=\"text/markdown\" href=\"...\">. Markdown cuts token cost and removes layout noise for agents."
+        },
+        {
+          "id": "structured-data",
+          "title": "Structured data (JSON-LD)",
+          "weight": 5,
+          "status": "pass",
+          "score": 100,
+          "reason": "Every key page has valid JSON-LD.",
+          "fix": null
+        },
+        {
+          "id": "api-docs",
+          "title": "OpenAPI and API docs discoverability",
+          "weight": 10,
+          "status": "fail",
+          "score": 0,
+          "reason": "No API spec at /openapi.json, /openapi.yaml, /swagger.json, /api/openapi.json, /.well-known/api-catalog and no API docs link on key pages or in llms.txt.",
+          "fix": "Publish an OpenAPI spec at /openapi.json and link API docs from your homepage and llms.txt. If the product has no API, disable this check in config (\"api-docs\": { \"enabled\": false })."
+        },
+        {
+          "id": "mcp",
+          "title": "MCP server discoverability",
+          "weight": 10,
+          "status": "fail",
+          "score": 0,
+          "reason": "No MCP server found: no /.well-known MCP document and no mention on key pages or in llms.txt.",
+          "fix": "If you offer an MCP server, document its URL, transport, and auth in llms.txt and your docs. If you do not, an MCP server is the most direct way for agents like Claude Code to use your product. Disable this check in config (\"mcp\": { \"enabled\": false }) if it does not apply."
+        },
+        {
+          "id": "auth-friction",
+          "title": "Auth, signup, and bot-challenge friction",
+          "weight": 10,
+          "status": "pass",
+          "score": 100,
+          "reason": "No login walls, bot challenges, or CAPTCHAs on 1 key page(s).",
+          "fix": null
+        },
+        {
+          "id": "page-weight",
+          "title": "Page weight and token cost",
+          "weight": 5,
+          "status": "pass",
+          "score": 85,
+          "reason": "Key pages are light enough to read in one pass.",
+          "fix": null
+        }
+      ]
+    }
   },
   {
     "slug": "artisan",
