@@ -10,6 +10,15 @@ const PAPER = "#fdfbf3";
 const PEN = "#d7263d";
 const MARKER = "#fff35c";
 const CHALK = "#2f5d50";
+const ORANGE = "#f08a24";
+
+const TONES: Record<string, { ring: string; fill: string; text: string }> = {
+  A: { ring: CHALK, fill: "transparent", text: CHALK },
+  B: { ring: CHALK, fill: "transparent", text: CHALK },
+  C: { ring: ORANGE, fill: "transparent", text: ORANGE },
+  D: { ring: PEN, fill: "transparent", text: PEN },
+  F: { ring: PEN, fill: PEN, text: INK },
+};
 
 const font = readFile(join(process.cwd(), "assets/fonts/ArchivoBlack-Regular.ttf"));
 
@@ -29,7 +38,7 @@ const bodyFor = (slug: string): Body | undefined => {
 export async function GET(request: Request, { params }: { params: Promise<{ slug: string }> }) {
   const b = bodyFor((await params).slug);
   if (!b) return new Response("Not found", { status: 404 });
-  const tone = b.letter === "A" || b.letter === "B" ? CHALK : PEN;
+  const tone = TONES[b.letter];
   const headers: Record<string, string> = { "Cache-Control": "public, max-age=86400" };
   if (new URL(request.url).searchParams.get("dl") === "1") headers["Content-Disposition"] = 'attachment; filename="report-card.png"';
 
@@ -41,7 +50,7 @@ export async function GET(request: Request, { params }: { params: Promise<{ slug
           <div style={{ display: "flex", fontSize: 20, color: "#777777" }}>{b.kicker}</div>
         </div>
         <div style={{ display: "flex", alignItems: "center", gap: 56 }}>
-          <div style={{ display: "flex", alignItems: "center", justifyContent: "center", width: 230, height: 230, borderRadius: 999, border: `12px solid ${tone}`, color: tone, fontSize: 150, transform: "rotate(-8deg)" }}>{b.letter}</div>
+          <div style={{ display: "flex", alignItems: "center", justifyContent: "center", width: 230, height: 230, borderRadius: 999, border: `12px solid ${tone.ring}`, background: tone.fill, color: tone.text, fontSize: 150, transform: "rotate(-8deg)" }}>{b.letter}</div>
           <div style={{ display: "flex", flexDirection: "column", flex: 1, gap: 14 }}>
             <div style={{ display: "flex", fontSize: 64, lineHeight: 1.05 }}>{b.title}</div>
             <div style={{ display: "flex", fontSize: 32, color: "#444444" }}>{b.line}</div>
