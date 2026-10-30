@@ -41,7 +41,7 @@ export default function Grading() {
         If a site answers the scanner with a 403 or a bot challenge, the checks behind that door score zero and the report card says the robot was locked out. The site may well have an llms.txt in there. An agent that can&apos;t get in can&apos;t use it.
       </p>
       <h2 className="font-display text-2xl">Who made the list</h2>
-      <p>Companies that sell AI agents or agent platforms and say so on their homepage. The list skips companies where I have an open job application, so nobody gets graded mid-interview.</p>
+      <p>Companies that sell AI agents or agent platforms and say so on their homepage.</p>
       <h2 className="font-display text-2xl">Regrades</h2>
       <p>
         Scores are reproducible. Run the same scan and you get the same answer. If you fixed your site or think a check got it wrong, <a href={`${REPO_URL}/issues`} className="underline">open an issue</a> and I&apos;ll rescan. The class gets rescanned every month, and who moved is the next post.
