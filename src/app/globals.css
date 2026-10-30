@@ -1,0 +1,25 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #1b1b1b;
+  --color-paper: #fdfbf3;
+  --color-pen: #d7263d;
+  --color-marker: #fff35c;
+  --color-chalk: #2f5d50;
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+}
+
+.hl {
+  background: linear-gradient(transparent 35%, var(--color-marker) 35%, var(--color-marker) 90%, transparent 90%);
+  padding: 0 0.15em;
+}
+
+.font-display {
+  font-family: var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
+}

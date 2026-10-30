@@ -1,0 +1,320 @@
+[
+  {
+    "slug": "openai",
+    "name": "OpenAI",
+    "url": "https://openai.com/",
+    "category": "Labs and models"
+  },
+  {
+    "slug": "mistral",
+    "name": "Mistral",
+    "url": "https://mistral.ai/",
+    "category": "Labs and models"
+  },
+  {
+    "slug": "cohere",
+    "name": "Cohere",
+    "url": "https://cohere.com/",
+    "category": "Labs and models"
+  },
+  {
+    "slug": "xai",
+    "name": "xAI",
+    "url": "https://x.ai/",
+    "category": "Labs and models"
+  },
+  {
+    "slug": "perplexity",
+    "name": "Perplexity",
+    "url": "https://perplexity.ai/",
+    "category": "Labs and models"
+  },
+  {
+    "slug": "ai21",
+    "name": "AI21",
+    "url": "https://ai21.com/",
+    "category": "Labs and models"
+  },
+  {
+    "slug": "salesforce",
+    "name": "Salesforce",
+    "url": "https://salesforce.com/",
+    "category": "Enterprise agent platforms"
+  },
+  {
+    "slug": "servicenow",
+    "name": "ServiceNow",
+    "url": "https://servicenow.com/",
+    "category": "Enterprise agent platforms"
+  },
+  {
+    "slug": "hubspot",
+    "name": "HubSpot",
+    "url": "https://hubspot.com/",
+    "category": "Enterprise agent platforms"
+  },
+  {
+    "slug": "zendesk",
+    "name": "Zendesk",
+    "url": "https://zendesk.com/",
+    "category": "Enterprise agent platforms"
+  },
+  {
+    "slug": "intercom",
+    "name": "Intercom",
+    "url": "https://intercom.com/",
+    "category": "Enterprise agent platforms"
+  },
+  {
+    "slug": "ibm",
+    "name": "IBM",
+    "url": "https://ibm.com/",
+    "category": "Enterprise agent platforms"
+  },
+  {
+    "slug": "uipath",
+    "name": "UiPath",
+    "url": "https://uipath.com/",
+    "category": "Enterprise agent platforms"
+  },
+  {
+    "slug": "automation-anywhere",
+    "name": "Automation Anywhere",
+    "url": "https://automationanywhere.com/",
+    "category": "Enterprise agent platforms"
+  },
+  {
+    "slug": "atlassian",
+    "name": "Atlassian",
+    "url": "https://atlassian.com/",
+    "category": "Enterprise agent platforms"
+  },
+  {
+    "slug": "notion",
+    "name": "Notion",
+    "url": "https://notion.com/",
+    "category": "Enterprise agent platforms"
+  },
+  {
+    "slug": "asana",
+    "name": "Asana",
+    "url": "https://asana.com/",
+    "category": "Enterprise agent platforms"
+  },
+  {
+    "slug": "box",
+    "name": "Box",
+    "url": "https://box.com/",
+    "category": "Enterprise agent platforms"
+  },
+  {
+    "slug": "snowflake",
+    "name": "Snowflake",
+    "url": "https://snowflake.com/",
+    "category": "Enterprise agent platforms"
+  },
+  {
+    "slug": "databricks",
+    "name": "Databricks",
+    "url": "https://databricks.com/",
+    "category": "Enterprise agent platforms"
+  },
+  {
+    "slug": "aws",
+    "name": "AWS",
+    "url": "https://aws.amazon.com/",
+    "category": "Enterprise agent platforms"
+  },
+  {
+    "slug": "moveworks",
+    "name": "Moveworks",
+    "url": "https://moveworks.com/",
+    "category": "Enterprise agent platforms"
+  },
+  {
+    "slug": "glean",
+    "name": "Glean",
+    "url": "https://glean.com/",
+    "category": "Enterprise agent platforms"
+  },
+  {
+    "slug": "writer",
+    "name": "Writer",
+    "url": "https://writer.com/",
+    "category": "Enterprise agent platforms"
+  },
+  {
+    "slug": "sierra",
+    "name": "Sierra",
+    "url": "https://sierra.ai/",
+    "category": "Customer service agents"
+  },
+  {
+    "slug": "decagon",
+    "name": "Decagon",
+    "url": "https://decagon.ai/",
+    "category": "Customer service agents"
+  },
+  {
+    "slug": "ada",
+    "name": "Ada",
+    "url": "https://ada.cx/",
+    "category": "Customer service agents"
+  },
+  {
+    "slug": "crescendo",
+    "name": "Crescendo",
+    "url": "https://crescendo.ai/",
+    "category": "Customer service agents"
+  },
+  {
+    "slug": "kore-ai",
+    "name": "Kore.ai",
+    "url": "https://kore.ai/",
+    "category": "Customer service agents"
+  },
+  {
+    "slug": "cognigy",
+    "name": "Cognigy",
+    "url": "https://cognigy.com/",
+    "category": "Customer service agents"
+  },
+  {
+    "slug": "cognition",
+    "name": "Cognition",
+    "url": "https://cognition.ai/",
+    "category": "Coding agents"
+  },
+  {
+    "slug": "replit",
+    "name": "Replit",
+    "url": "https://replit.com/",
+    "category": "Coding agents"
+  },
+  {
+    "slug": "lovable",
+    "name": "Lovable",
+    "url": "https://lovable.dev/",
+    "category": "Coding agents"
+  },
+  {
+    "slug": "bolt",
+    "name": "Bolt",
+    "url": "https://bolt.new/",
+    "category": "Coding agents"
+  },
+  {
+    "slug": "cursor",
+    "name": "Cursor",
+    "url": "https://cursor.com/",
+    "category": "Coding agents"
+  },
+  {
+    "slug": "factory",
+    "name": "Factory",
+    "url": "https://factory.ai/",
+    "category": "Coding agents"
+  },
+  {
+    "slug": "poolside",
+    "name": "Poolside",
+    "url": "https://poolside.ai/",
+    "category": "Coding agents"
+  },
+  {
+    "slug": "langchain",
+    "name": "LangChain",
+    "url": "https://langchain.com/",
+    "category": "Agent builders"
+  },
+  {
+    "slug": "crewai",
+    "name": "CrewAI",
+    "url": "https://crewai.com/",
+    "category": "Agent builders"
+  },
+  {
+    "slug": "n8n",
+    "name": "n8n",
+    "url": "https://n8n.io/",
+    "category": "Agent builders"
+  },
+  {
+    "slug": "zapier",
+    "name": "Zapier",
+    "url": "https://zapier.com/",
+    "category": "Agent builders"
+  },
+  {
+    "slug": "lindy",
+    "name": "Lindy",
+    "url": "https://lindy.ai/",
+    "category": "Agent builders"
+  },
+  {
+    "slug": "relevance-ai",
+    "name": "Relevance AI",
+    "url": "https://relevanceai.com/",
+    "category": "Agent builders"
+  },
+  {
+    "slug": "dust",
+    "name": "Dust",
+    "url": "https://dust.tt/",
+    "category": "Agent builders"
+  },
+  {
+    "slug": "browserbase",
+    "name": "Browserbase",
+    "url": "https://browserbase.com/",
+    "category": "Agent builders"
+  },
+  {
+    "slug": "retool",
+    "name": "Retool",
+    "url": "https://retool.com/",
+    "category": "Agent builders"
+  },
+  {
+    "slug": "11x",
+    "name": "11x",
+    "url": "https://11x.ai/",
+    "category": "Sales and vertical agents"
+  },
+  {
+    "slug": "artisan",
+    "name": "Artisan",
+    "url": "https://artisan.co/",
+    "category": "Sales and vertical agents"
+  },
+  {
+    "slug": "clay",
+    "name": "Clay",
+    "url": "https://clay.com/",
+    "category": "Sales and vertical agents"
+  },
+  {
+    "slug": "qualified",
+    "name": "Qualified",
+    "url": "https://qualified.com/",
+    "category": "Sales and vertical agents"
+  },
+  {
+    "slug": "hebbia",
+    "name": "Hebbia",
+    "url": "https://hebbia.com/",
+    "category": "Sales and vertical agents"
+  },
+  {
+    "slug": "hippocratic-ai",
+    "name": "Hippocratic AI",
+    "url": "https://hippocraticai.com/",
+    "category": "Sales and vertical agents"
+  },
+  {
+    "slug": "andy-rosic",
+    "name": "Andy Rosic",
+    "url": "https://andyrosic.com/",
+    "category": "The guy who made this"
+  }
+]
