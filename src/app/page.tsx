@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { CopyCommand } from "@/components/copy-command";
+import { ScanBox } from "@/components/scan-box";
 import { GradeBadge } from "@/components/grade-badge";
 import { classList, self } from "@/lib/data";
 import { average, letterFor, teacherNote, withArticle } from "@/lib/grade";
@@ -91,13 +92,18 @@ export default function Home() {
         <div className="flex flex-col gap-3">
           <h2 className="font-display text-3xl">Grade your own site</h2>
           <p className="text-lg">
-            Your next customer might be an agent shopping on someone&apos;s behalf. Find out what it sees on your site before it decides you&apos;re too much work. One command gets you the same report card the class got.
+            Your next customer might be an agent shopping on someone&apos;s behalf. Find out what it sees on your site before it decides you&apos;re too much work. Paste your address for a quick grade in your browser. The robot reads your homepage from our server with the same read-only scan the class got, and we save nothing.
           </p>
         </div>
-        <CopyCommand command={SCAN_COMMAND} />
+        <ScanBox />
 
         <div className="flex flex-col gap-3">
-          <h3 className="font-display text-xl text-marker">What happens when you run it</h3>
+          <h3 className="font-display text-xl text-marker">Want the full report card? Run one command</h3>
+          <CopyCommand command={SCAN_COMMAND} />
+        </div>
+
+        <div className="flex flex-col gap-3">
+          <h3 className="font-display text-xl text-marker">What happens when you run the command</h3>
           <div className="grid gap-4 sm:grid-cols-3">
             {SAFETY.map(([title, body]) => (
               <div key={title} className="flex flex-col gap-1 rounded-xl bg-paper/10 p-4">
